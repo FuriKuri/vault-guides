@@ -1,11 +1,13 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # General Variables
 # ---------------------------------------------------------------------------------------------------------------------
-variable "name"         { default = "vault-quick-start" }
+variable "name"         { default = "vault-cluster" }
 variable "ami_owner"    { default = "309956199498" } # Base RHEL owner
 variable "ami_name"     { default = "*RHEL-7.3_HVM_GA-*" } # Base RHEL name
 variable "provider"     { default = "aws" }
 variable "local_ip_url" { default = "http://169.254.169.254/latest/meta-data/local-ipv4" }
+variable "zone_id" {}
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Network Variables

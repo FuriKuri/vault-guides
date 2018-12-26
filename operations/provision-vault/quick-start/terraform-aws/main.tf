@@ -152,3 +152,19 @@ ${data.template_file.vault_install.rendered} # Runtime install Vault in -dev mod
 ${data.template_file.vault_quick_start.rendered} # Configure Vault quick start
 EOF
 }
+
+resource "aws_route53_record" "vault" {
+  zone_id = "${var.zone_id}"
+  name    = "vault"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${module.vault_aws.vault_lb_dns}"]
+}
+
+resource "aws_route53_record" "consul" {
+  zone_id = "${var.zone_id}"
+  name    = "consul"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["${module.consul_aws.consul_lb_dns}"]
+}
